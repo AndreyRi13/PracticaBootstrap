@@ -171,12 +171,25 @@
     
     <script>
 
-      $(document).ready(function () {      
+      $(document).ready(function () {
+
+
+        $("#selh3").bind("click", function () {
+
+
+
+          
+$(document).ready(function(){
   $("#selh3").click(function(){
-  	window.open('selecciones/Colombia.html', '_self');
+  	window.open('Selecciones/Colombia.html', '_self');
   });
 });
+</script>
 
+
+
+          $("#contenedor").load("/selecciones/colombia.html #contenedor2");
+        });
 
         $("li a").click(function (event) {
           event.preventDefault();
@@ -185,7 +198,8 @@
           }
 
         });
-     
+
+      });
   
 
     </script>

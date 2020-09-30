@@ -171,12 +171,13 @@
     
     <script>
 
-      $(document).ready(function () {      
-  $("#selh3").click(function(){
-  	window.open('selecciones/Colombia.html', '_self');
-  });
-});
+      $(document).ready(function () {
 
+
+        $("#selh3").bind("click", function () {
+
+          $("#contenedor").load("/selecciones/colombia.html #contenedor2");
+        });
 
         $("li a").click(function (event) {
           event.preventDefault();
@@ -185,7 +186,8 @@
           }
 
         });
-     
+
+      });
   
 
     </script>
@@ -193,9 +195,8 @@
     <script language="javascript">
       function recargar() {
         /// Aqui podemos enviarle alguna variable a nuestro script PHP
-        $("#contenedor").load("/selecciones/colombia.html #contenedor2");
 
-
+        
         var variable_post = "Mi texto recargado";
         /// Invocamos a nuestro script PHP
         $.post("miscript.php", { variable: variable_post }, function (data) {

@@ -72,7 +72,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#">Polonia</a>
             <a class="dropdown-item" href="#">Senegal</a>
-            <a class="dropdown-item" href="#" id="selh3" onclick="javascript:recargar();">Colombia</a>
+            <a class="dropdown-item" href="#" id="selh3" onclick="cambiar()">Colombia</a>
             <a class="dropdown-item" href="#">Japon</a>
           </div>
         </li>
@@ -171,12 +171,13 @@
     
     <script>
 
-      $(document).ready(function () {      
-  $("#selh3").click(function(){
-  	window.open('selecciones/Colombia.html', '_self');
-  });
-});
+      $(document).ready(function () {
 
+
+        $("#selh3").bind("click", function () {
+
+          $("#contenedor").load("/selecciones/colombia.html #contenedor2");
+        });
 
         $("li a").click(function (event) {
           event.preventDefault();
@@ -185,34 +186,29 @@
           }
 
         });
-     
-  
+
+      });
+
+      function cargarContenidoReloj("") {
+        // cargamos el icono en el div donde ira el contenido
+        $("#contenedor").html("<img src='clock.gif' class='clock' border='0' />");
+        // cargamos la pagina pagina3.php en el div contenido
+        $("#contenedor").load(pagina);
+    }
 
     </script>
-    
-    <script language="javascript">
-      function recargar() {
-        /// Aqui podemos enviarle alguna variable a nuestro script PHP
-        $("#contenedor").load("/selecciones/colombia.html #contenedor2");
 
 
-        var variable_post = "Mi texto recargado";
-        /// Invocamos a nuestro script PHP
-        $.post("miscript.php", { variable: variable_post }, function (data) {
-          /// Ponemos la respuesta de nuestro script en el DIV recargado
-          $("#recargado").html(data);
-        });
-      }
-    </script>
-    
+
     <footer class="footer">
       <div class="container">
         <p class="text-muted">Programación Aplicaciones Web - 2018</p>
       </div>
     </footer>
-    
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
       integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
       crossorigin="anonymous"></script>
